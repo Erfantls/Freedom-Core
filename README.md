@@ -30,15 +30,6 @@
 
 ---
 
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/Freedom-Guard/freedom-core.git
-cd freedom-core
-````
-
----
-
 ### 2. Run Locally (Native)
 
 ```bash
@@ -48,11 +39,20 @@ go run cmd/server/main.go
 Or build an executable:
 
 ```bash
-# Windows
+# Windows 64-bit
 go build -o freedom-core.exe ./cmd/server
 
-# Linux / macOS
+# Windows 32-bit
+GOOS=windows GOARCH=386 go build -o freedom-core-x86.exe ./cmd/server
+
+# Linux 64-bit
 go build -o freedom-core ./cmd/server
+
+# macOS Intel (x64)
+GOOS=darwin GOARCH=amd64 go build -o freedom-core-macos-x64 ./cmd/server
+
+# macOS Apple Silicon (ARM64)
+GOOS=darwin GOARCH=arm64 go build -o freedom-core-macos-arm64 ./cmd/server
 ```
 
 * The service will start and show:

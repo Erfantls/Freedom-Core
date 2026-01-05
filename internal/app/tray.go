@@ -1,3 +1,5 @@
+//go:build (windows && amd64) || (linux && amd64) || (darwin && (amd64 || arm64))
+
 package app
 
 import (
@@ -14,6 +16,7 @@ import (
 //go:embed icon.ico
 var iconData []byte
 
+// RunTray starts the system tray
 func RunTray() {
 	systray.Run(onReady, onExit)
 }
